@@ -5,6 +5,12 @@ function reducer(state, action) {
     case 'reset':
       return initialState
 
+    case 'set.users':
+      return { ...state, users: action.payload }
+
+    case 'set.groups':
+      return { ...state, groups: action.payload }
+
     default:
       return state
   }
