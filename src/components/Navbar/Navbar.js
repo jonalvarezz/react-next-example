@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Context } from '../../store'
+import ThemeContext from '../../theme'
 
 const List = styled.ul`
   margin: 0;
   padding: 1rem 20px;
   display: flex;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid ${({ theme }) => theme.lightGray};
   justify-content: center;
   list-style: none;
   > li {
@@ -24,10 +25,11 @@ const Button = styled.button`
 
 function Navbar() {
   const { current } = useContext(Context)
+  const theme = useContext(ThemeContext)
 
   return (
     <nav>
-      <List>
+      <List theme={theme}>
         <li>
           <Button active={current === 'users'}>Users</Button>
         </li>

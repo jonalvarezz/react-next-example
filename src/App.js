@@ -1,13 +1,16 @@
 import React from 'react'
 import Store from './store'
-import Navbar from './components/Navbar'
+import Navbar from './components/navbar'
+import ThemeContext, { defaultTheme } from './theme'
 
 function App() {
   return (
     <Store>
-      <div>
-        <Navbar />
-      </div>
+      <ThemeContext.Provider value={defaultTheme}>
+        <div>
+          <Navbar />
+        </div>
+      </ThemeContext.Provider>
     </Store>
   )
 }
