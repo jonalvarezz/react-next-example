@@ -28,7 +28,7 @@ function Store({ initialState, children }) {
   )
 }
 Store.propTypes = {
-  initialState: StoreType,
+  initialState: PropTypes.shape(StoreType),
   children: PropTypes.element
 }
 Store.defaultProps = {
