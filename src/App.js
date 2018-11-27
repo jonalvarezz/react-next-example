@@ -3,6 +3,7 @@ import Store from './store'
 import Navbar from './components/navbar'
 import ThemeContext, { defaultTheme } from './theme'
 import Body from './components/grid'
+import Sidebar from './components/sidebar'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <div>
           <Navbar />
           <Body />
+          <Sidebar />
         </div>
       </ThemeContext.Provider>
     </Store>
