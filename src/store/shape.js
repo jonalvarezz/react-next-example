@@ -1,5 +1,6 @@
 const shape = {
   current: 'users',
+  activeItem: '',
   users: [],
   groups: []
 }

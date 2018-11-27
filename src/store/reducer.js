@@ -11,6 +11,9 @@ function reducer(state, action) {
     case 'set.groups':
       return { ...state, groups: action.payload }
 
+    case 'set.activeItem':
+      return { ...state, activeItem: action.payload }
+
     default:
       return state
   }

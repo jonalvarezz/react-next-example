@@ -15,7 +15,6 @@ function Store({ initialState, children }) {
   // React only fire the effect on mount
   useEffect(() => {
     fetchData().then(({ users, groups }) => {
-      console.log('Setting up store...')
       dispatch(actions.setUsers(users))
       dispatch(actions.setGroups(groups))
     })

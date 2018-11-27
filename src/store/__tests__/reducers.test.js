@@ -46,3 +46,15 @@ it('should set groups', () => {
   const result = reducer(state, actions.setGroups(newGroups))
   expect(result.groups).toEqual(newGroups)
 })
+
+it('should set activeItem', () => {
+  const state = {
+    current: 'something',
+    activeItem: '',
+    users: [{ id: '3093' }, { id: '45845' }, { id: 'askdjf' }],
+    groups: [{ id: '3490d' }]
+  }
+
+  const result = reducer(state, actions.setActiveItem('3981029182'))
+  expect(result.activeItem).toEqual('3981029182')
+})
