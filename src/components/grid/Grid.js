@@ -4,7 +4,7 @@ import Card from './Card'
 import User from './User'
 import Group from './Group'
 
-import { Context } from '../../store'
+import { Context, actions } from '../../store'
 
 const Wrapper = styled.section`
   width: 90%;
@@ -17,14 +17,22 @@ const List = styled.ul`
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 10px;
   background-color: #fff;
   color: #444;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `
 
 function Grid() {
-  const store = useContext(Context)
+  const { dispatch, activeItem, ...store } = useContext(Context)
   const collection = store[store.current]
   const Component = store.current === 'users' ? User : Group
 
@@ -32,7 +40,11 @@ function Grid() {
     <Wrapper>
       <List>
         {collection.map(data => (
-          <Card key={data.id}>
+          <Card
+            key={data.id}
+            onClick={() => dispatch(actions.setActiveItem(data.id))}
+            active={data.id === activeItem}
+          >
             <Component {...data} />
           </Card>
         ))}
