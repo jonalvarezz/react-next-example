@@ -1,12 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Picture from '../Picture'
 import { UserType } from '../../store/types'
-
-const Picture = styled.img`
-  width: 128px;
-  height: auto;
-  border-radius: 50%;
-`
 
 const Name = styled.figcaption`
   font-weight: bold;
