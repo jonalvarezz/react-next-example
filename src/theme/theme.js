@@ -2,6 +2,7 @@ import { createContext } from 'react'
 
 export const defaultTheme = {
   primary: 'tomato',
+  red: 'tomato',
   lightGray: '#eee',
   gray: '#ccc',
   darkGray: '#333'

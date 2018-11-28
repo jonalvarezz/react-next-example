@@ -24,6 +24,17 @@ const CloseBtn = styled.button`
   }
 `
 
+const Wrapper = styled.aside`
+  position: absolute;
+  top: 0;
+  padding: 3rem 2rem 2rem;
+  bottom: 0;
+  width: 60%;
+  right: 0;
+  background: white;
+  box-shadow: -4px 2px 16px rgba(0, 0, 0, 0.3);
+`
+
 const allFixed = {
   position: 'fixed',
   top: 0,
@@ -69,8 +80,10 @@ function AnimatedSidebar({ show, children, onClose }) {
     <animated.div style={move}>
       <animated.div style={fadeIn} />
       <animated.div style={move2} onClick={onClick} ref={backdropRef}>
-        {children}
-        <CloseBtn onClick={onClose} />
+        <Wrapper>
+          {show && children}
+          <CloseBtn onClick={onClose} />
+        </Wrapper>
       </animated.div>
     </animated.div>
   )
