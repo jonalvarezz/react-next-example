@@ -5,6 +5,7 @@ import { UserType, GroupType } from '../../store/types'
 import UserInfo from './UserInfo'
 import UserForm from './UserForm'
 import GroupInfo from './GroupInfo'
+import GroupForm from './GroupForm'
 import Button from '../Button'
 
 const Footer = styled.footer`
@@ -39,7 +40,7 @@ function SidebarContainer({
   if (current === 'users') {
     Component = isEditing ? UserForm : UserInfo
   } else {
-    Component = isEditing ? UserForm : GroupInfo
+    Component = isEditing ? GroupForm : GroupInfo
   }
 
   return (

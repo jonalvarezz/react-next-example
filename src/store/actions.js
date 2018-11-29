@@ -1,5 +1,7 @@
 export const resetStore = () => ({ type: 'reset' })
 
+export const setCurrent = current => ({ type: 'set.current', payload: current })
+
 export const setUsers = users => ({ type: 'set.users', payload: users })
 
 export const setGroups = groups => ({ type: 'set.groups', payload: groups })

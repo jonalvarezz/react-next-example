@@ -8,8 +8,7 @@ function Sidebar() {
   const closeSidebar = () => store.dispatch(actions.setActiveItem(''))
   const createOrUpdate = data =>
     store.dispatch(actions.createOrUpdateItem(data))
-  const deleteItem = () =>
-    console.log('heyyy') || store.dispatch(actions.deleteItem())
+  const deleteItem = () => store.dispatch(actions.deleteItem())
   const data = selectors.getCurrentItem(store)
   const allGroups = store.groups
 

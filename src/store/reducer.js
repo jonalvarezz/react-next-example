@@ -53,6 +53,9 @@ function reducer(state, action) {
     case 'reset':
       return initialState
 
+    case 'set.current':
+      return { ...state, current: action.payload }
+
     case 'set.users':
       return { ...state, users: action.payload }
 

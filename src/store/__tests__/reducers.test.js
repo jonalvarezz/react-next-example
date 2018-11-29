@@ -13,6 +13,17 @@ it('should works for reset action', () => {
   expect(result).toEqual(initialState)
 })
 
+it('should set current property', () => {
+  const state = {
+    current: 'something',
+    users: [{ id: '3093' }, { id: '45845' }, { id: 'askdjf' }],
+    groups: [{ id: '3490d' }]
+  }
+
+  const result = reducer(state, actions.setCurrent('groups'))
+  expect(result.current).toEqual('groups')
+})
+
 it('should set users', () => {
   const state = {
     current: 'something',

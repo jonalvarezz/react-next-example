@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { Context } from '../../store'
+import { Context, actions } from '../../store'
 import ThemeContext from '../../theme'
 
 const List = styled.ul`
@@ -24,17 +24,27 @@ const Button = styled.button`
 `
 
 function Navbar() {
-  const { current } = useContext(Context)
+  const { current, dispatch } = useContext(Context)
   const theme = useContext(ThemeContext)
 
   return (
     <nav>
       <List theme={theme}>
         <li>
-          <Button active={current === 'users'}>Users</Button>
+          <Button
+            active={current === 'users'}
+            onClick={() => dispatch(actions.setCurrent('users'))}
+          >
+            Users
+          </Button>
         </li>
         <li>
-          <Button active={current === 'groups'}>Groups</Button>
+          <Button
+            active={current === 'groups'}
+            onClick={() => dispatch(actions.setCurrent('groups'))}
+          >
+            Groups
+          </Button>
         </li>
       </List>
     </nav>
