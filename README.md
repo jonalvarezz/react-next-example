@@ -1,5 +1,7 @@
 # React Next Example
 
+![alt App's Screenshot](./screenshot.png)
+
 This a sample API that uses React@next (16.6.2) to create a similar architecture as Redux using `React.Context` and `React.useReducer`.
 
 Read more about it in my blog post entry: [Replacing Redux with React's useReducer and Context](http://jonalvarezz.com/articles/replacing-redux-with-usereducer-context/)
