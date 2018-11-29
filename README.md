@@ -14,6 +14,10 @@ Also features:
 - React Spring
 - Prettier
 
+Todo:
+- [ ] Use Routing.
+- [ ] Code Split with React Lazy and Suspense.
+
 ## Available Scripts
 
 In the project directory, you can run:
