@@ -15,7 +15,7 @@ const Footer = styled.footer`
 const propTypes = {
   current: PropTypes.oneOf(['users', 'groups']),
   allGroups: PropTypes.arrayOf(PropTypes.shape(GroupType)),
-  createNew: PropTypes.func,
+  createOrUpdate: PropTypes.func,
   deleteItem: PropTypes.func,
   closeSidebar: PropTypes.func,
   itemData: PropTypes.oneOfType([
@@ -27,7 +27,7 @@ const propTypes = {
 function SidebarContainer({
   current,
   itemData,
-  createNew,
+  createOrUpdate,
   deleteItem,
   closeSidebar,
   allGroups
@@ -47,7 +47,7 @@ function SidebarContainer({
       <Component
         {...itemData}
         allGroups={allGroups}
-        createNew={createNew}
+        createOrUpdate={createOrUpdate}
         deleteItem={deleteItem}
         toggleEdit={toggleEdit}
         cancel={closeSidebar}

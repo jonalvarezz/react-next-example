@@ -16,31 +16,33 @@ const propTypes = {
   ...UserType,
   allGroups: PropTypes.arrayOf(PropTypes.shape(GroupType)),
   children: PropTypes.func.isRequired,
-  createNew: PropTypes.func,
+  createOrUpdate: PropTypes.func,
   cancel: PropTypes.func
 }
 
 function UserForm({
+  id,
   email,
   fullname,
   picture,
   groups,
   allGroups,
   children,
-  createNew,
+  createOrUpdate,
   cancel
 }) {
-  const [newGroups, setNewGroups] = useState(...groups)
+  const [newGroups, setNewGroups] = useState(groups)
   const onGroupChange = g => setNewGroups(g)
 
   const onSubmit = event => {
     event.preventDefault()
     const update = {
+      id: id,
       fullname: event.target.fullname.value,
       email: event.target.email.value,
       groups: newGroups
     }
-    createNew(update)
+    createOrUpdate(update)
   }
 
   return (
