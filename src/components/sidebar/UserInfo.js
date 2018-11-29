@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { UserType } from '../../store/types'
 import Picture from '../Picture'
-import Button from '../Button'
 
 const Container = styled.div`
   text-align: center;
@@ -16,7 +15,6 @@ function UserInfo({ email, fullname, picture, groups }) {
       <p>{email}</p>
       <h4>Groups</h4>
       <p>{groups.join(', ')}</p>
-      <Button>Edit</Button> <Button danger>Delete</Button>
     </Container>
   )
 }

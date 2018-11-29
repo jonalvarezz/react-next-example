@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 
 const Button = styled.button`
   background: transparent;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
   line-height: 1.499;
   display: inline-block;

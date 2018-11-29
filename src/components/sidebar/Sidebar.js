@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Context, actions, selectors } from '../../store'
 import AnimatedSidebar from './AnimatedSidebar'
-import UserInfo from './UserInfo'
+import Container from './SidebarContainer'
 
 function Sidebar() {
   const store = useContext(Context)
@@ -10,7 +10,11 @@ function Sidebar() {
 
   return (
     <AnimatedSidebar show={store.activeItem} onClose={closeSidebar}>
-      <UserInfo {...data} />
+      <Container
+        itemData={data}
+        current={store.current}
+        closeSidebar={closeSidebar}
+      />
     </AnimatedSidebar>
   )
 }

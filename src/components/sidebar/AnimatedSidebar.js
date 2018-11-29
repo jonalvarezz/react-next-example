@@ -30,6 +30,7 @@ const Wrapper = styled.aside`
   padding: 3rem 2rem 2rem;
   bottom: 0;
   width: 60%;
+  max-width: 36rem;
   right: 0;
   background: white;
   box-shadow: -4px 2px 16px rgba(0, 0, 0, 0.3);
