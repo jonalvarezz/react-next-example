@@ -6,6 +6,7 @@ import Container from './SidebarContainer'
 function Sidebar() {
   const store = useContext(Context)
   const closeSidebar = () => store.dispatch(actions.setActiveItem(''))
+  const createNew = data => store.dispatch(actions.createNew(data))
   const data = selectors.getCurrentItem(store)
 
   return (
@@ -14,6 +15,7 @@ function Sidebar() {
         itemData={data}
         current={store.current}
         closeSidebar={closeSidebar}
+        createNew={createNew}
       />
     </AnimatedSidebar>
   )
