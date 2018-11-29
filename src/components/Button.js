@@ -20,26 +20,31 @@ const Button = styled.button`
   border-radius: 4px;
   height: 32px;
 
+  border-color: ${props => props.theme.darkGray};
+  color: ${props => props.theme.darkGray};
+  &:hover {
+    background-color: ${props => props.theme.darkGray};
+    color: white;
+  }
+
   ${props =>
-    props.danger
-      ? css`
-          border-color: ${props.theme.red};
-          color: ${props.theme.red};
+    props.danger &&
+    css`
+      border-color: ${props.theme.red};
+      color: ${props.theme.red};
 
-          &:hover {
-            background-color: ${props.theme.red};
-            color: white;
-          }
-        `
-      : css`
-          border-color: ${props.theme.darkGray};
-          color: ${props.theme.darkGray};
+      &:hover {
+        background-color: ${props.theme.red};
+        color: white;
+      }
+    `}
 
-          &:hover {
-            background-color: ${props.theme.darkGray};
-            color: white;
-          }
-        `}
+  ${props =>
+    props.ghost &&
+    css`
+      border-width: 0;
+      box-shadow: none;
+    `}
 `
 
 const StyledButton = props => {
