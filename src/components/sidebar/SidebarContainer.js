@@ -14,6 +14,7 @@ const Footer = styled.footer`
 
 const propTypes = {
   current: PropTypes.oneOf(['users', 'groups']),
+  allGroups: PropTypes.arrayOf(PropTypes.shape(GroupType)),
   createNew: PropTypes.func,
   closeSidebar: PropTypes.func,
   itemData: PropTypes.oneOfType([
@@ -22,7 +23,13 @@ const propTypes = {
   ])
 }
 
-function SidebarContainer({ current, itemData, createNew, closeSidebar }) {
+function SidebarContainer({
+  current,
+  itemData,
+  createNew,
+  closeSidebar,
+  allGroups
+}) {
   const [isEditing, setEdit] = useState(false)
   const toggleEdit = () => setEdit(!isEditing)
 
@@ -37,6 +44,7 @@ function SidebarContainer({ current, itemData, createNew, closeSidebar }) {
     <div>
       <Component
         {...itemData}
+        allGroups={allGroups}
         createNew={createNew}
         toggleEdit={toggleEdit}
         cancel={closeSidebar}

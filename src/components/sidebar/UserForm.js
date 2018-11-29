@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import Select from 'antd/lib/select'
 import PropTypes from 'prop-types'
-import { UserType } from '../../store/types'
+import { UserType, GroupType } from '../../store/types'
 import { Input } from '../form'
 import Picture from '../Picture'
 
@@ -13,6 +14,7 @@ const Form = styled.form`
 
 const propTypes = {
   ...UserType,
+  allGroups: PropTypes.arrayOf(PropTypes.shape(GroupType)),
   children: PropTypes.func.isRequired,
   createNew: PropTypes.func,
   cancel: PropTypes.func
@@ -23,21 +25,53 @@ function UserForm({
   fullname,
   picture,
   groups,
+  allGroups,
   children,
   createNew,
   cancel
 }) {
+  const [newGroups, setNewGroups] = useState(...groups)
+  const onGroupChange = g => setNewGroups(g)
+
+  const onSubmit = event => {
+    event.preventDefault()
+    const update = {
+      fullname: event.target.fullname.value,
+      email: event.target.email.value,
+      groups: newGroups
+    }
+    createNew(update)
+  }
+
   return (
-    <Form onSubmit={createNew}>
-      <Picture src={picture} alt={`${fullname}'s portrait`} />
+    <Form onSubmit={onSubmit}>
       <p>
-        <Input placeholder="Fullname" defaultValue={fullname} />
+        <Picture src={picture} alt={`${fullname}'s portrait`} />
       </p>
       <p>
-        <Input placeholder="Email" defaultValue={email} type="email" required />
+        <Input placeholder="Fullname" name="fullname" defaultValue={fullname} />
+      </p>
+      <p>
+        <Input
+          placeholder="Email"
+          name="email"
+          defaultValue={email}
+          type="email"
+          required
+        />
       </p>
       <h4>Groups</h4>
-      <p>{groups.join(', ')}</p>
+      <Select
+        mode="multiple"
+        style={{ width: '100%', marginBottom: '20px' }}
+        placeholder="Please select"
+        defaultValue={groups}
+        onChange={onGroupChange}
+      >
+        {allGroups.map(g => (
+          <Select.Option key={g.name}>{g.name}</Select.Option>
+        ))}
+      </Select>
       {children({
         action1Props: {
           children: 'Save',
