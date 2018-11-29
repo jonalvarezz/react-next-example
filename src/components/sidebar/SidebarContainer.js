@@ -16,6 +16,7 @@ const propTypes = {
   current: PropTypes.oneOf(['users', 'groups']),
   allGroups: PropTypes.arrayOf(PropTypes.shape(GroupType)),
   createNew: PropTypes.func,
+  deleteItem: PropTypes.func,
   closeSidebar: PropTypes.func,
   itemData: PropTypes.oneOfType([
     PropTypes.shape(UserType),
@@ -27,6 +28,7 @@ function SidebarContainer({
   current,
   itemData,
   createNew,
+  deleteItem,
   closeSidebar,
   allGroups
 }) {
@@ -46,6 +48,7 @@ function SidebarContainer({
         {...itemData}
         allGroups={allGroups}
         createNew={createNew}
+        deleteItem={deleteItem}
         toggleEdit={toggleEdit}
         cancel={closeSidebar}
       >

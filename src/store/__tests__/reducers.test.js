@@ -58,3 +58,33 @@ it('should set activeItem', () => {
   const result = reducer(state, actions.setActiveItem('3981029182'))
   expect(result.activeItem).toEqual('3981029182')
 })
+
+it('should delete current item', () => {
+  const state = {
+    current: 'users',
+    activeItem: '45845',
+    users: [{ id: '3093' }, { id: '45845' }, { id: 'askdjf' }],
+    groups: [{ id: '3490d' }]
+  }
+  expect(state.users.length).toEqual(3)
+
+  const result = reducer(state, actions.deleteItem())
+  expect(result.activeItem).toEqual('')
+  expect(result.users.length).toEqual(2)
+  expect(result.users).toEqual([{ id: '3093' }, { id: 'askdjf' }])
+})
+
+it('should delete item with given id', () => {
+  const state = {
+    current: 'users',
+    activeItem: '45845',
+    users: [{ id: '3093' }, { id: '45845' }, { id: 'askdjf' }],
+    groups: [{ id: '3490d' }]
+  }
+  expect(state.users.length).toEqual(3)
+
+  const result = reducer(state, actions.deleteItem({ id: 'askdjf' }))
+  expect(result.activeItem).toEqual('')
+  expect(result.users.length).toEqual(2)
+  expect(result.users).toEqual([{ id: '3093' }, { id: '45845' }])
+})
