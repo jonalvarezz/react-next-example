@@ -15,6 +15,7 @@ Also features:
 - Prettier
 
 Todo:
+- [ ] Performance test.
 - [ ] Use Routing.
 - [ ] Code Split with React Lazy and Suspense.
 
