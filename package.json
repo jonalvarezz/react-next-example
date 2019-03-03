@@ -5,8 +5,8 @@
   "dependencies": {
     "antd": "^3.10.9",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "^16.8",
+    "react-dom": "^16.8",
     "react-scripts": "2.1.1",
     "react-spring": "^6.1.9",
     "styled-components": "^4.1.1"
